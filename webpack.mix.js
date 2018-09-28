@@ -11,5 +11,20 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix
+	// .js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   // .browserSync({
+   //     proxy: 'localhost:8000',
+   //     open: false,
+   //     // files: [
+   //     //             'src/**/*',
+   //     //             'components/**/*',
+   //     //             'index.php'
+   //     //         ],
+   // });
+	.browserSync({
+		proxy: 'localhost:8000',
+		open: false,
+		disableSuccessNotifications: true
+	});
