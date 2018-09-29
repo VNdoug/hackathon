@@ -1,7 +1,7 @@
 <div class="box-body">
-        <div class="form-group">
+        <div class="form-group form-required">
             {{ Form::label('descricao', 'Especialização') }}
-            {{ Form::text('descricao', old('descricao'), ['class' => 'form-control form-required', 'autofocus', 'required']) }}
+            {{ Form::text('descricao', old('descricao'), ['class' => 'form-control', 'autofocus', 'required']) }}
         </div>
 
         <div class="checkbox">
