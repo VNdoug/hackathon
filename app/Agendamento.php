@@ -17,11 +17,6 @@ class Agendamento extends Model
         'data_retorno'
     ];
 
-    public function paciente(){
-        return $this->hasOne(User::class, 'id', 'paciente_id');
-    }
-
-
     /* Scopes */
     public function scopeComRelacionamentos($query) {
         return $query->with(['paciente', 'medico']);
