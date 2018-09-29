@@ -60,7 +60,7 @@
                     </div>
                     <div class="banner-text text-center">
                         <h1 class="white">Sistema para pré-agendamento de consultas do SUS</h1>
-                        <p id="cor-banner">O AgendaSUS pensa na ficilidade do paciente em pré-agendar uma consulta, visando sua qualidade de vida.</p>
+                        <p class="cor-white-p">O AgendaSUS pensa na ficilidade do paciente em pré-agendar uma consulta, visando sua qualidade de vida.</p>
                         <a href="#agendamento" class="btn btn-appoint">Pré-Agendamento.</a>
                     </div>
                     <div class="overlay-detail text-center">
@@ -151,7 +151,7 @@
                         <h4 class="white no-padding">Sobre Nós</h4>
                     </div>
                     <div class="info-sec">
-                        <p>Equipe de três desenvolvedores WEB, para a maratona de programação Hackaton.</p>
+                        <p class="cor-white-p">Equipe de três desenvolvedores WEB, para a maratona de programação Hackaton.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 marb20">
