@@ -133,6 +133,10 @@ return [
             'icon'    => 'user-md',
             'submenu' => [
                 [
+                    'text' => 'Consultas',
+                    'route'  => 'consultas.index',
+                ],
+                [
                     'text' => 'Listar',
                     'route'  => 'medicos.index',
                 ],

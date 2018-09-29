@@ -29,7 +29,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function especializacao(){
+    public function especializacao() {
         return $this->hasOne(EspecializacaoMedico::class,'id', 'especializacao_id');
     }
+
+    public function consultas() {
+        return $this->hasMany(Agendamento::class, 'medico_id');
+    }
+
+
 }

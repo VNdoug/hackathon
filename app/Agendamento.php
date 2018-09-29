@@ -17,9 +17,14 @@ class Agendamento extends Model
         'data_retorno'
     ];
 
+
     /* Scopes */
     public function scopeComRelacionamentos($query) {
         return $query->with(['paciente', 'medico']);
+    }
+
+    public function scopeConfirmadas($query) {
+        return $query->where('confirmada', 1);
     }
 
 
