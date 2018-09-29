@@ -25,6 +25,8 @@ class UsersTableSeeder extends Seeder
             $users->insert([
                 'id'       => 2,
                 'name'     => 'Médico',
+                'crm'     => '1234',
+                'especializacao_id'     => 1,
                 'email'    => 'medico@example.com',
                 'password' => bcrypt('1')
             ]);
