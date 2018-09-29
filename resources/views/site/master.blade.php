@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="banner-info">
                     <div class="banner-logo text-center">
-                        <img src="{{ asset('template/img/logo.png') }}" class="img-responsive">
+                        <img src="{{ asset('template/img/logo.png') }}" class="img-responsive" width="250">
                     </div>
                     <div class="banner-text text-center">
                         <h1 class="white">Sistema para pré-agendamento de consultas do SUS</h1>
