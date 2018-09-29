@@ -26,5 +26,11 @@ mix
 	.browserSync({
 		proxy: 'localhost:8000',
 		open: false,
-		disableSuccessNotifications: true
+		disableSuccessNotifications: true,
+      files: [
+                   'app/**/*',
+                   'resources/**/*',
+                   'routes/**/*',
+                   'config/**/*',
+               ],
 	});
