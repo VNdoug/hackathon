@@ -12,7 +12,9 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/admin/admin.js', 'public/js/admin')
+    .js('resources/assets/js/site/site.js', 'public/js/site')
   .sass('resources/assets/sass/admin/admin.scss', 'public/css/admin')
+  .sass('resources/assets/sass/site/site.scss', 'public/css/site')
    // .browserSync({
    //     proxy: 'localhost:8000',
    //     open: false,
@@ -25,6 +27,7 @@ mix.js('resources/assets/js/admin/admin.js', 'public/js/admin')
   .browserSync({
     proxy: 'localhost:8000',
     open: false,
+    notify:false,
     disableSuccessNotifications: true,
       files: [
                    'app/**/*',

@@ -8,10 +8,17 @@
     <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="{{ asset('plugins/timepicker/bootstrap-timepicker.min.css') }}">
+
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
     <link rel="stylesheet" type="text/css" href="{{ asset('template/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('template/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('template/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/site/site.css') }}">
     <!-- =======================================================
     Theme Name: Medilab
     Theme URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
@@ -39,7 +46,7 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="#banner">Início</a></li>
                             <li class=""><a href="#service">Serviços</a></li>
-                            <li class=""><a href="#contact">Agendar</a></li>
+                            <li class=""><a href="#agendamento">Agendar</a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,7 +61,7 @@
                     <div class="banner-text text-center">
                         <h1 class="white">Sistema para pré-agendamento de consultas do SUS</h1>
                         <p>O AgendaSUS pensa na ficilidade do paciente em pré-agendar uma consulta, visando sua qualidade de vida.</p>
-                        <a href="#contact" class="btn btn-appoint">Pré-Agendamento.</a>
+                        <a href="#agendamento" class="btn btn-appoint">Pré-Agendamento.</a>
                     </div>
                     <div class="overlay-detail text-center">
                         <a href="#service"><i class="fa fa-angle-down"></i></a>
@@ -133,51 +140,7 @@
     </div>
 </section>
 <!--cta-->
-<!--contact-->
-<section id="contact" class="section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="ser-title">Informação</h2>
-                <hr class="botm-line">
-            </div>
-            <div class="col-md-4 col-sm-4">
-                <h3>Sua consulta ainda não foi agendada, preencha o formulário e aguarde que entraremos em contato com você!</h3>
-            </div>
-            <div class="col-md-8 col-sm-8 marb20">
-                <div class="contact-info">
-                    <h3 class="cnt-ttl">Preencha o formulário e aguarde!</h3>
-                    <div class="space"></div>
-                    <div id="sendmessage">Your message has been sent. Thank you!</div>
-                    <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
-                        <div class="form-group">
-                            <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Fale um pouco doque você precisa"></textarea>
-                            <div class="validation"></div>
-                        </div>
-
-                        <div class="form-action">
-                            <button type="submit" class="btn btn-form">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--/ contact-->
+@include('site.agendamento')
 <!--footer-->
 <footer id="footer">
     <div class="top-footer">
@@ -199,7 +162,7 @@
                         <ul class="quick-info">
                             <li><a href="index.html"><i class="fa fa-circle"></i>Início</a></li>
                             <li><a href="#service"><i class="fa fa-circle"></i>Serviços</a></li>
-                            <li><a href="#contact"><i class="fa fa-circle"></i>Agendar</a></li>
+                            <li><a href="#agendamento"><i class="fa fa-circle"></i>Agendar</a></li>
                         </ul>
                     </div>
                 </div>
@@ -244,7 +207,48 @@
 <script src="{{ asset('template/js/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('template/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('template/js/custom.js') }}"></script>
-<script src="{{ asset('template/contactform/contactform.js') }}"></script>
+{{--<script src="{{ asset('template/contactform/contactform.js') }}"></script>--}}
+<script src="{{ asset("plugins/timepicker/bootstrap-timepicker.min.js") }}"></script>
+<script src="{{ mix('js/site/site.js') }}"></script>
+
+<script>
+    //Timepicker
+    $('.timepicker').timepicker({
+        showInputs: false,
+        showSeconds:false,
+        defaultTime:false,
+        showMeridian:false,
+        maxHours:18,
+    });
+
+    $('.mask-cpf').inputmask({
+        mask: "9{0,3}[.999][.999][-99]",
+        placeholder: '',
+        autoUnmask: true,
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+        removeMaskOnSubmit:true,
+        greedy: false
+    });
+
+    $('.mask-sus').inputmask({
+        mask: "999.9999.9999.9999",
+        placeholder: '',
+        autoUnmask: true,
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+        removeMaskOnSubmit:true,
+        greedy: false
+    });
+
+    $('.mask-celular').inputmask({
+        mask: ['(99) 9999-9999', '(99) 99999-9999'],
+        placeholder: '',
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+        keepStatic: true,
+    });
+</script>
 
 </body>
 
