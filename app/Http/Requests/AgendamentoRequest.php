@@ -27,11 +27,11 @@ class AgendamentoRequest extends FormRequest
             'name' => 'required',
             'telefone' => 'required',
             'cart_sus' => 'required',
-            'cpf' => 'required',
+            'cpf' => 'required|unique:users',
             'especializacao_id' => 'required',
             'medico_id' => 'required',
-            'data_pre_agendamento' => 'required|date',
-            'hora_pre_agendamento' => 'required|time',
+            'data_pre_agendamento' => 'required',
+            'hora_pre_agendamento' => 'required',
             'sintomas' => 'required',
         ];
     }

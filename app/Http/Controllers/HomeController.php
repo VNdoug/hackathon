@@ -17,14 +17,11 @@ class HomeController extends Controller
         return view('site.index', compact('especializacoes'));
     }
 
-    public function store(Request $request){
-//        dd($request->cart_sus);
+    public function store(AgendamentoRequest $request){
         $dados = $request->all();
         $dados["email"] = $request->cpf."@example.com";
         $dados["password"] = bcrypt($request->cart_sus);
         $user = User::create($dados)->assignRole('paciente');;
-
-//        dd($user);
 
         $dados_agendamento = $request->all();
         $dados_agendamento["paciente_id"] = $user->id;
