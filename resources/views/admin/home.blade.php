@@ -56,13 +56,10 @@
 
     </div>
     <!-- /.row -->
-    <div class="row col-xs-12">
-        <canvas id="line-chart" width="800" height="450"></canvas>
-    </div>
     <!-- Main row -->
     <div class="row">
         <!-- Left col -->
-        <section class="col-lg-12 connectedSortable">
+        <section class="col-lg-6 connectedSortable">
             <!-- Calendar -->
             <div class="box box-solid bg-green-gradient">
                 <div class="box-header">
@@ -119,6 +116,9 @@
         </section>
         <!-- /.Left col -->
         
+        <div class="row col-lg-6">
+            <canvas id="line-chart" width="800" height="450"></canvas>
+        </div>
 
 
 

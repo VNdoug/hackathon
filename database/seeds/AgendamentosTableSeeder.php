@@ -14,13 +14,31 @@ class AgendamentosTableSeeder extends Seeder
         $agendamentos = DB::table('agendamentos');
 
         if (!$agendamentos->count()) {
-            $agendamentos->insert([
-                'paciente_id'       => 4,
-                'medico_id'       => 2,
-                'data_pre_agendamento'     => '2018-09-30',
-                'hora_pre_agendamento'     => '09:00',
-                'sintomas'    => 'teste de agendamento',
-            ]);
+            $dataAtual = now();
+
+            for ($i=0; $i < 400; $i++) {
+                $teste = mt_rand(0, 1);
+
+                if ($teste == 1) {
+                    $dataAleatoria = now()->subDays(mt_rand(1, 30))->subHours(rand(1, 7));
+                } else {
+                    $dataAleatoria = now()->addDays(mt_rand(1, 15))->subHours(rand(1, 7));
+                }
+
+                $data_pre_agendamento = $dataAleatoria->toDateString();
+                $hora_pre_agendamento = $dataAleatoria->toTimeString();
+
+                $agendamentos->insert([
+                    'paciente_id'     => mt_rand(7, 100),
+                    'medico_id'       => mt_rand(2, 5),
+                    'data_pre_agendamento'     => $data_pre_agendamento,
+                    'hora_pre_agendamento'     => $hora_pre_agendamento,
+                    'sintomas'    => 'teste de agendamento',
+                    'concluida' => $teste == 1 ? 1 : 0,
+                    'confirmada' => $teste == 1 ? 1 : mt_rand(0, 1),
+                ]);
+            }
+            
 
         }
     }
