@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title_prefix', 'Especialização dos Médicos')
+@section('title_prefix', 'Médicos')
 @section('box_style', 'primary')
 
 @section('content_header')
@@ -11,21 +11,21 @@
             <a href="#">Início</a>
         </li>
         <li class="active">
-            Especializações
+            Médicos
         </li>
     </ol>
-    <h1>Lista de Especializações <small>Especializações Cadastradas</small></h1>
+    <h1>Lista de Médicos <small>Médicos Cadastrados</small></h1>
 @stop
 
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title"><i class="fa fa-list"></i> Especializações Cadastradas</h3>
+            <h3 class="box-title"><i class="fa fa-list"></i> Médicos Cadastrados</h3>
             <div>
                 <br>
-                <a href="{{ route('especializacoes.create') }}" class="btn btn-primary btn-flat">
+                <a href="{{ route('medicos.create') }}" class="btn btn-primary btn-flat">
                     <i class="fa fa-plus-circle"></i>
-                    Adicionar Especialização
+                    Adicionar Médico
                 </a>
             </div>
         </div>
@@ -35,27 +35,31 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Descricao</th>
+                    <th>Nome</th>
+                    <th>CRM</th>
+                    <th>Especialização</th>
                     <th>Ativo</th>
                     <th>Ações</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($especializacoes  as $especializacao)
+                @foreach($medicos  as $medico)
                     <tr>
 
-                        <td>{{ $especializacao->id }}</td>
-                        <td>{{ $especializacao->descricao }}</td>
+                        <td>{{ $medico->id }}</td>
+                        <td>{{ $medico->name }}</td>
+                        <td>{{ $medico->crm }}</td>
+                        <td>{{ $medico->especializacao["descricao"] }}</td>
                         <td class="text-center">
-                            @if($especializacao->ativo == 1)
+                            @if($medico->ativo == 1)
                                 <span class="label bg-green">Sim</span>
                             @else
                                 <span class="label bg-red">Não</span>
                             @endif
                         </td>
                         <td class="text-center">
-                            {!! Form::open(['route' => ['especializacoes.destroy', $especializacao], 'method' => 'DELETE']) !!}
-                            <a href="{{ route('especializacoes.edit', $especializacao) }}" class="btn btn-flat btn-sm btn-warning" data-toggle="tooltip" title="Editar">
+                            {!! Form::open(['route' => ['medicos.destroy', $medico], 'method' => 'DELETE']) !!}
+                            <a href="{{ route('medicos.edit', $medico) }}" class="btn btn-flat btn-sm btn-warning" data-toggle="tooltip" title="Editar">
                                 <i class="fa fa-pencil"></i>
                             </a>
 
@@ -72,19 +76,4 @@
         <!-- /.box-body -->
     </div>
     <!-- /.box -->
-
-    {{--<div class="box-body">--}}
-            {{--<table class="table table-bordered table-striped table-hover">--}}
-                {{--<thead>--}}
-                {{--<tr>--}}
-                    {{--<th>#</th>--}}
-                    {{--<th>Descrição</th>--}}
-                    {{--<th>Ativo</th>--}}
-                    {{--<th>Ações</th>--}}
-                {{--</tr>--}}
-                {{--</thead>--}}
-
-            {{--</table>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 @stop

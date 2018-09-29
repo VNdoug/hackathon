@@ -72,19 +72,4 @@
         <!-- /.box-body -->
     </div>
     <!-- /.box -->
-
-    {{--<div class="box-body">--}}
-            {{--<table class="table table-bordered table-striped table-hover">--}}
-                {{--<thead>--}}
-                {{--<tr>--}}
-                    {{--<th>#</th>--}}
-                    {{--<th>Descrição</th>--}}
-                    {{--<th>Ativo</th>--}}
-                    {{--<th>Ações</th>--}}
-                {{--</tr>--}}
-                {{--</thead>--}}
-
-            {{--</table>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 @stop

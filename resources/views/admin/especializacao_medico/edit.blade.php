@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title_prefix', 'Editar Fabrica')
+@section('title_prefix', 'Editar Especialização')
 @section('box_style', 'primary')
 
 @section('content_header')
