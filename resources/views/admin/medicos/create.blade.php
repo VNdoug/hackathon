@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title_prefix', 'Nova Especialização')
+@section('title_prefix', 'Novo Médico')
 @section('box_style', 'primary')
 
 @section('content_header')
@@ -12,23 +12,23 @@
         </li>
         <li class="">
             <i class="fa fa-user-md"></i>
-            <a href="{{route('especializacoes.index')}}">Especializações</a>
+            <a href="{{route('especializacoes.index')}}">Médicos</a>
         </li>
         <li class="active">
-            Nova Especialização
+            Novo Médico
         </li>
     </ol>
-    <h1>Cadastro de Especialização <small>Nova Especialização</small></h1>
+    <h1>Cadastro de Médico <small>Novo Médico</small></h1>
 @stop
 
 @section('content')
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-plus-circle"></i> Adicionar Especialização</h3>
+            <h3 class="box-title"><i class="fa fa-plus-circle"></i> Adicionar Médico</h3>
         </div>
 
-        {{ Form::open(['route' => 'especializacoes.store', 'class' => 'modal-crud']) }}
-            @include('admin.especializacao_medico.form')
+        {{ Form::open(['route' => 'medicos.store', 'class' => 'modal-crud']) }}
+            @include('admin.medicos.form')
         {{ Form::close() }}
 
     </div>

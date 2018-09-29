@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'especializacao_id', 'crm', 'ativo'
     ];
 
     /**
@@ -28,4 +28,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function especializacao(){
+        return $this->hasOne(EspecializacaoMedico::class,'id', 'especializacao_id');
+    }
 }
