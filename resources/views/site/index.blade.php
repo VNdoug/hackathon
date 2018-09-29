@@ -60,7 +60,7 @@
                     </div>
                     <div class="banner-text text-center">
                         <h1 class="white">Sistema para pré-agendamento de consultas do SUS</h1>
-                        <p>O AgendaSUS pensa na ficilidade do paciente em pré-agendar uma consulta, visando sua qualidade de vida.</p>
+                        <p id="cor-banner">O AgendaSUS pensa na ficilidade do paciente em pré-agendar uma consulta, visando sua qualidade de vida.</p>
                         <a href="#agendamento" class="btn btn-appoint">Pré-Agendamento.</a>
                     </div>
                     <div class="overlay-detail text-center">
