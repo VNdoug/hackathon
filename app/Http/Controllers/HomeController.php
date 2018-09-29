@@ -19,8 +19,16 @@ class HomeController extends Controller
         return view('site.index', compact('especializacoes'));
     }
 
+    public function consultas(){
+        if(!Auth::check()){
+            return redirect()->route('site.login');
+        }
+
+        $consultas = Agendamento::where([['concluida', true],['paciente_id', Auth::user()->id]])->get();
+        return view('site.consultas', compact('consultas'));
+    }
+
     public function store(Request $request){
-//        dd($request->all());
 
         if(!Auth::check()){
             $dados = $request->all();
@@ -45,11 +53,6 @@ class HomeController extends Controller
         return back()->with('success', 'Consulta Agendada com sucesso!');
     }
 
-    public function ajaxMedicos(Request $request){
-        $medicos = User::role('medico')->where('especializacao_id', $request->especializacao_id)->orderBy('name')->pluck('name', 'id');
-        return \Response::json($medicos, 200);
-    }
-
     public function login(){
         return view('site.login');
     }
@@ -62,19 +65,19 @@ class HomeController extends Controller
 
         if (Auth::attempt($userdata)) {
 
-            // validation successful!
-            // redirect them to the secure section or whatever
-            // return Redirect::to('secure');
-            // for now we'll just echo success (even though echoing in a controller is bad)
             echo 'SUCCESS!';
 
                 return redirect()->route('site.home');
 
         } else {
 
-            // validation not successful, send back to form
                 return redirect()->route('site.login');
 
         }
+    }
+
+    public function ajaxMedicos(Request $request){
+        $medicos = User::role('medico')->where('especializacao_id', $request->especializacao_id)->orderBy('name')->pluck('name', 'id');
+        return \Response::json($medicos, 200);
     }
 }

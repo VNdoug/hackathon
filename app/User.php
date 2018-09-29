@@ -38,4 +38,14 @@ class User extends Authenticatable
     }
 
 
-}
+    /* Scopes */
+    public function scopeMedicos($query) {
+        return $query->role('medico');
+    }
+
+
+    /* Getters */
+    public function getConsultasConfirmadasAttribute() {
+        return $this->consultas()->confirmadas()->count();
+    }
+ }
