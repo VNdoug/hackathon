@@ -21,6 +21,9 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "fullcalendar": "^3.9.0"
+        "bootstrap-datepicker": "^1.8.0",
+        "bootstrap-timepicker": "^0.5.2",
+        "fullcalendar": "^3.9.0",
+        "inputmask": "^4.0.2"
     }
 }
