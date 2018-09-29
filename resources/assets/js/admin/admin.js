@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import 'fullcalendar' ;
 import 'bootstrap-datepicker';
+import swal from 'sweetalert2';
 
 $('#calendar').fullCalendar({
     defaultView: 'listWeek',
@@ -72,3 +73,26 @@ $('#datepicker').datepicker({
     language:"pt-BR",
     todayHighlight:true,
 });
+
+
+$('body').on('click', '.delete', function() {
+    var btn = $(this);
+    var form = btn.closest('form');
+    btn.prop('disabled', true);
+
+    swal({
+        title: 'Tem certeza de que deseja excluir o registro?',
+        text: "Essa ação não pode ser desfeita!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, excluir!'
+    }).then((result) => {
+        if (result.value) {
+            form.submit();
+        }
+
+        btn.prop('disabled', false);
+    })
+})
