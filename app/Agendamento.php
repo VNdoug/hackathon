@@ -63,4 +63,8 @@ class Agendamento extends Model
         return $this->data_pre_agendamento->format('d/m/Y');
     }
 
+    public function getDataHoraConcatenadaAttribute() {
+        return $this->data_pre_agendamento->toDateString() . " " . $this->hora_pre_agendamento;
+    }
+
 }

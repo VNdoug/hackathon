@@ -20,7 +20,7 @@ class AgendamentoController extends Controller
 
         foreach ($agendamentos as $agendamento) {
             $dados['title'] = $agendamento->paciente->name;
-            $dados['start'] = $agendamento->data_pre_agendamento->toDateTimeString();
+            $dados['start'] = $agendamento->data_hora_concatenada;
             $dados['color'] = $agendamento->cor_calendario;
 
             $dados['url'] = route('atendimentos.edit', $agendamento->id);
