@@ -1,21 +1,21 @@
 <div class="box-body">
-    <div class="form-group">
+    <div class="form-group form-required">
         {{ Form::label('name', 'Nome') }}
-        {{ Form::text('name', null, ['class' => 'form-control form-required', 'required']) }}
+        {{ Form::text('name', null, ['class' => 'form-control', 'required']) }}
     </div>
-    <div class="form-group">
+    <div class="form-group form-required">
         {{ Form::label('email', 'E-mail') }}
-        {{ Form::email('email', null, ['class' => 'form-control form-required', 'required']) }}
+        {{ Form::email('email', null, ['class' => 'form-control', 'required']) }}
     </div>
 
     @if (!isset($atendente))
-        <div class="form-group">
+        <div class="form-group form-required">
             {{ Form::label('password', 'Senha') }}
-            {{ Form::password('password', ['class' => 'form-control form-required', 'required']) }}
+            {{ Form::password('password', ['class' => 'form-control', 'required']) }}
         </div>
-        <div class="form-group">
+        <div class="form-group form-required">
             {{ Form::label('password_confirmation', 'Confirme a senha') }}
-            {{ Form::password('password_confirmation', ['class' => 'form-control form-required', 'required']) }}
+            {{ Form::password('password_confirmation', ['class' => 'form-control', 'required']) }}
         </div>
     @endif
 </div>
