@@ -11,9 +11,8 @@ let mix = require('laravel-mix');
  |
  */
 
-mix
-	// .js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/assets/js/admin/admin.js', 'public/js/admin')
+  .sass('resources/assets/sass/app.scss', 'public/css')
    // .browserSync({
    //     proxy: 'localhost:8000',
    //     open: false,
@@ -23,14 +22,14 @@ mix
    //     //             'index.php'
    //     //         ],
    // });
-	.browserSync({
-		proxy: 'localhost:8000',
-		open: false,
-		disableSuccessNotifications: true,
+  .browserSync({
+    proxy: 'localhost:8000',
+    open: false,
+    disableSuccessNotifications: true,
       files: [
                    'app/**/*',
                    'resources/**/*',
                    'routes/**/*',
                    'config/**/*',
                ],
-	});
+  });
