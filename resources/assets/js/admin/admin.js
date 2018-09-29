@@ -15,6 +15,7 @@ $('#calendar').fullCalendar({
     },
     
     buttonText: {
+      today: 'Hoje',
       month: 'Mês',
       listMonth: 'Mês (lista)',
       listWeek: 'Semana',
@@ -46,6 +47,7 @@ $('#calendar-medico').fullCalendar({
     },
     
     buttonText: {
+      today: 'Hoje',
       month: 'Mês',
       listMonth: 'Mês (lista)',
       listWeek: 'Semana',
