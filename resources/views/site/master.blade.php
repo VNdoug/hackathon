@@ -50,7 +50,7 @@
                             @if(!Auth::check())
                                 <li class=""><a href="{{ route('site.login') }}">Minhas Consultas</a></li>
                             @else
-                                <li class=""><a href="#">Olá {{ Auth::user()->name }}</a></li>
+                                <li class=""><a href="{{ route('site.consultas') }}">Olá {{ Auth::user()->name }}</a></li>
                             @endif
                         </ul>
                     </div>

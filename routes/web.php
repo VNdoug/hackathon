@@ -16,7 +16,7 @@ Route::post('/', 'HomeController@store')->name('agendamento.store');
 Route::post('/ajax/medicos', 'HomeController@ajaxMedicos')->name('ajax.medicos');
 Route::get('/site/login', 'HomeController@login')->name('site.login');
 Route::post('/site/login', 'HomeController@auth')->name('site.login.auth');
-Route::post('/site/consultas', 'HomeController@consultas')->name('site.consultas');
+Route::get('/site/consultas', 'HomeController@consultas')->name('site.consultas');
 
 Auth::routes();
 
