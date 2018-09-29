@@ -21,7 +21,7 @@ Route::get('/site/consultas', 'HomeController@consultas')->name('site.consultas'
 Auth::routes();
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
-	Route::get('', 'HomeController@index');
+	Route::get('', 'HomeController@index')->name('admin.home');
 	Route::resource('/atendentes', 'AtendenteController');
 	Route::resource('/medicos', 'MedicoController')->except('show');
 	Route::resource('/especializacoes', 'EspecializacaoMedicoController',[

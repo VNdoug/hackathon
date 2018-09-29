@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="thumbnail">
-                            <img src="{{ asset('template/img/doctor1.jpg') }}" alt="..." class="team-img">
+                            <img src="{{ asset('template/img/doctor2.jpg') }}" alt="..." class="team-img">
                             <div class="caption">
                                 <h3>{{ $consulta->medico->name }}</h3>
                                 <p>Doctor</p>

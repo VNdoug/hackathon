@@ -33,11 +33,11 @@ class HomeController extends Controller
         if(!Auth::check()){
             $dados = $request->all();
             $dados["email"] = $request->cpf."@example.com";
-            $dados["password"] = bcrypt($request->cart_sus);
+            $dados["password"] = bcrypt(substr($request->cart_sus,0,6));
             $user = User::create($dados)->assignRole('paciente');
             $userdata = array(
                 'email'     => $dados["email"],
-                'password'  => $request->cart_sus
+                'password'  => substr($request->cart_sus,0,6)
             );
             Auth::attempt($userdata);
         }else{
