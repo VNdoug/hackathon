@@ -17,4 +17,6 @@ Auth::routes();
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('', 'HomeController@index');
 	Route::resource('/especializacoes', 'EspecializacaoMedicoController');
+
+	Route::resource('/atendentes', 'AtendenteController');
 });
