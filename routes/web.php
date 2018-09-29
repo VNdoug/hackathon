@@ -25,3 +25,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         ]
     ])->except('show');
 });
+
+Route::group(['namespace' => 'Medico', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
+
+Route::resource('/atendimentos', 'AtendimentoController');
+});
+
