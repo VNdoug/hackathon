@@ -115,7 +115,7 @@ return [
         ],
         [
             'text'    => 'Atendentes',
-            'icon'    => 'share',
+            'icon'    => 'users',
             'submenu' => [
                 [
                     'text' => 'Listar',
@@ -166,17 +166,7 @@ return [
         [
             'text'    => 'Atendimentos',
             'icon'    => 'medkit',
-            'submenu' => [
-                [
-                    'text' => 'Listar',
-                    'route'  => 'atendimentos.index',
-                ],
-                [
-                    'text' => 'Novo Atendimento',
-                    'route'  => 'atendimentos.create',
-                ],
-
-            ],
+            'route'  => 'atendimentos.index',
         ],
 
     ],

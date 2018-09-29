@@ -7,4 +7,19 @@
 
 // Bootstrap
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-@import "~fullcalendar/dist/fullcalendar"
+@import "~fullcalendar/dist/fullcalendar";
+
+
+html, body {
+	font-size: 14px;
+}
+
+.form-required {
+	label {
+		&:after {
+			color: red;
+			content: "*";
+			font-weight: bold;
+		}
+	}
+}
