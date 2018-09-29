@@ -13,3 +13,13 @@
 html, body {
 	font-size: 14px;
 }
+
+.form-required {
+	label {
+		&:after {
+			color: red;
+			content: "*";
+			font-weight: bold;
+		}
+	}
+}
