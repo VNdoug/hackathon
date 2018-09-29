@@ -31,8 +31,8 @@ class CreateAgendamentosTable extends Migration
             $table->text('avaliacao_medica')->nullable();
             $table->text('observacoes')->nullable();
 
-            $table->boolean('confirmada')->nullable();
-            $table->boolean('concluida')->nullable();
+            $table->boolean('confirmada')->default(0);
+            $table->boolean('concluida')->default(0);
 
             $table->timestamps();
         });
