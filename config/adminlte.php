@@ -115,7 +115,7 @@ return [
         ],
         [
             'text'    => 'Atendentes',
-            'icon'    => 'share',
+            'icon'    => 'users',
             'submenu' => [
                 [
                     'text' => 'Listar',
