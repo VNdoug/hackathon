@@ -28,11 +28,12 @@ mix.js('resources/assets/js/admin/admin.js', 'public/js/admin')
     proxy: 'localhost:8000',
     open: false,
     notify:false,
-    disableSuccessNotifications: true,
-      files: [
-                   'app/**/*',
-                   'resources/**/*',
-                   'routes/**/*',
-                   'config/**/*',
-               ],
-  });
+    files: [
+      'app/**/*',
+      'resources/**/*',
+      'routes/**/*',
+      'config/**/*',
+     ],
+  })
+
+  .disableSuccessNotifications();
