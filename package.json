@@ -24,6 +24,7 @@
         "bootstrap-datepicker": "^1.8.0",
         "bootstrap-timepicker": "^0.5.2",
         "fullcalendar": "^3.9.0",
-        "inputmask": "^4.0.2"
+        "inputmask": "^4.0.2",
+        "sweetalert2": "^7.28.4"
     }
 }
