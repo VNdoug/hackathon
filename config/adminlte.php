@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Agenda</b> SUS',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>A</b>SUS',
 
     /*
     |--------------------------------------------------------------------------
@@ -148,6 +148,37 @@ return [
 
             ],
         ],
+        [
+            'text'    => 'Medicos',
+            'icon'    => 'user-md',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'route'  => 'medicos.index',
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'route'  => 'medicos.create',
+                ],
+                [
+                    'text'    => 'Especialização',
+                    'icon'    => 'user-md',
+                    'submenu' => [
+                        [
+                            'text' => 'Listar',
+                            'route'  => 'especializacoes.index',
+                        ],
+                        [
+                            'text' => 'Cadastrar',
+                            'route'  => 'especializacoes.create',
+                        ],
+
+                    ],
+                ],
+
+            ],
+        ],
+
 
 
         // [
