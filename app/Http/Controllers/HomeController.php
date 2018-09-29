@@ -9,6 +9,7 @@ use App\Http\Requests\AgendamentoRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Response;
+use Validator;
 
 class HomeController extends Controller
 {
@@ -18,22 +19,20 @@ class HomeController extends Controller
     }
 
     public function store(AgendamentoRequest $request){
-        $dados = $request->all();
-        $dados["email"] = $request->cpf."@example.com";
-        $dados["password"] = bcrypt($request->cart_sus);
-        $user = User::create($dados)->assignRole('paciente');;
+//        dd($request->all());
 
-        $dados_agendamento = $request->all();
-        $dados_agendamento["paciente_id"] = $user->id;
-        $dados_agendamento["confirmada"] = false;
-        $dados_agendamento["data_pre_agendamento"] = Datas::FormataDataBanco($request->data_pre_agendamento);
+            $dados = $request->all();
+            $dados["email"] = $request->cpf."@example.com";
+            $dados["password"] = bcrypt($request->cart_sus);
+            $user = User::create($dados)->assignRole('paciente');;
 
-        Agendamento::create($dados_agendamento);
+            $dados_agendamento = $request->all();
+            $dados_agendamento["paciente_id"] = $user->id;
+            $dados_agendamento["confirmada"] = false;
+            $dados_agendamento["data_pre_agendamento"] = Datas::FormataDataBanco($request->data_pre_agendamento);
 
-        return back()->with('success', 'Consulta Agendada com sucesso!');
-
-
-
+            Agendamento::create($dados_agendamento);
+            return back()->with('success', 'Consulta Agendada com sucesso!');
     }
 
     public function ajaxMedicos(Request $request){

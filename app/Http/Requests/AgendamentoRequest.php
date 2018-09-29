@@ -33,6 +33,7 @@ class AgendamentoRequest extends FormRequest
             'data_pre_agendamento' => 'required',
             'hora_pre_agendamento' => 'required',
             'sintomas' => 'required',
+//            'g-recaptcha-response' => 'required|captcha'
         ];
     }
 }

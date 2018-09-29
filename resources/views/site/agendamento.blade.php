@@ -72,6 +72,9 @@
                         </div>
 
                         <div class="form-action">
+                            <span class="pull-left">
+                            {!! Form::captcha() !!}
+                            </span>
                             <button type="submit" class="btn btn-form pull-right"><i class="fa fa-check-circle"></i> Confirmar Consulta</button>
                         </div>
                     {{ Form::close() }}
