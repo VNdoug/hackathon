@@ -59,6 +59,19 @@
                                 <li class=""><a href="{{ route('site.login') }}">Minhas Consultas</a></li>
                             @else
                                 <li class=""><a href="{{ route('site.consultas') }}">Olá {{ Auth::user()->name }}</a></li>
+                                <li>
+                                    <a href="#"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    >
+                                        {{ trans('adminlte::adminlte.log_out') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
+                                        @if(config('adminlte.logout_method'))
+                                            {{ method_field(config('adminlte.logout_method')) }}
+                                        @endif
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
                             @endif
                         </ul>
                     </div>
