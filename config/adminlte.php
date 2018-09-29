@@ -183,6 +183,22 @@ return [
             ],
         ],
 
+        [
+            'text'    => 'Atendimentos',
+            'icon'    => 'medkit',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'route'  => 'atendimentos.index',
+                ],
+                [
+                    'text' => 'Novo Atendimento',
+                    'route'  => 'atendimentos.create',
+                ],
+
+            ],
+        ],
+
 
 
         // [

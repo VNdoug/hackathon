@@ -17,6 +17,8 @@
     
     <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
 
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="{{ asset('plugins/timepicker/bootstrap-timepicker.min.css') }}">
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
@@ -65,7 +67,20 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 @endif
 
+<script src="{{ asset("plugins/timepicker/bootstrap-timepicker.min.js") }}"></script>
+
 @yield('adminlte_js')
+
+<script>
+    //Timepicker
+     $('.timepicker').timepicker({
+         showInputs: false,
+         showSeconds:false,
+         defaultTime:false,
+         showMeridian:false,
+         maxHours:18,
+     });
+</script>
 
 </body>
 </html>

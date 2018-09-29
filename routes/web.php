@@ -28,7 +28,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 
 Route::group(['namespace' => 'Atendente', 'prefix' => 'atendente', 'middleware' => 'auth'], function() {
 	Route::resource('agendamentos', 'AgendamentoController');
-	
+
 });
 
 Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function() {
@@ -36,5 +36,11 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function() {
 	Route::group(['namespace' => 'Atendente', 'prefix' => 'atendente', 'middleware' => 'auth'], function() {
 		Route::get('agendamentos', 'AgendamentoController@ajaxGet');
 	});
-	
+
 });
+
+Route::group(['namespace' => 'Medico', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
+
+Route::resource('/atendimentos', 'AtendimentoController');
+});
+

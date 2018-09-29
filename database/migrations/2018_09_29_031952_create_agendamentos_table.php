@@ -21,8 +21,10 @@ class CreateAgendamentosTable extends Migration
             $table->integer('medico_id')->unsigned();
             $table->foreign('medico_id')->references('id')->on('users');
 
-            $table->dateTime('data_pre_agendamento')->nullable();
-            $table->dateTime('data_consulta')->nullable();
+            $table->date('data_pre_agendamento')->nullable();
+            $table->time('hora_pre_agendamento')->nullable();
+            $table->date('data_retorno')->nullable();
+            $table->time('hora_retorno')->nullable();
 
             $table->text('sintomas')->nullable();
             $table->text('receita')->nullable();

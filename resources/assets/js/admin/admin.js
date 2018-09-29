@@ -1,8 +1,6 @@
-// import $ from 'jquery';
-
-window.jQuery = window.$ = require('jquery') 
-
+import $ from 'jquery';
 import 'fullcalendar' ;
+import 'bootstrap-datepicker';
 
 $('#calendar').fullCalendar({
     defaultView: 'listWeek',
@@ -64,4 +62,13 @@ $('#calendar-medico').fullCalendar({
         
       }
     ]
+});
+
+//Date picker
+$('#datepicker').datepicker({
+    autoclose: true,
+    daysOfWeekDisabled: [0,6],
+    format: "dd/mm/yyyy",
+    language:"pt-BR",
+    todayHighlight:true,
 });
