@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title_prefix', 'Atendimento')
+@section('title_prefix', 'Confirmar Agendamento')
 @section('box_style', 'primary')
 
 @section('content_header')
@@ -12,22 +12,22 @@
         </li>
         <li class="">
             <i class="fa fa-user-md"></i>
-            <a href="{{route('atendimentos.index')}}">Atendimentos</a>
+            <a href="{{route('agendamentos.index')}}">Agendamentos</a>
         </li>
         <li class="active">
-            Novo Atendimento
+            Confimação do Agendamento
         </li>
     </ol>
-    <h1>Atendimento do Paciente <small>Novo Atendimento</small></h1>
+    <h1>Agendamento de Consulta <small>Confimação de Agendamento</small></h1>
 @stop
 @section('content')
     <div class="box box-warning">
         <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-user-plus"></i> Atendendo o Paciente {{ $atendimento->paciente["name"] }}</h3>
+            <h3 class="box-title"><i class="fa fa-calendar-o"></i> Agendando Consulta</h3>
         </div>
 
-        {!! Form::model($atendimento, ['route' => ['atendimentos.update', $atendimento], 'method' => 'PATCH']) !!}
-            @include('medico.atendimentos.form')
+        {!! Form::model($agendamento, ['route' => ['agendamentos.update', $agendamento], 'method' => 'PATCH']) !!}
+            @include('atendente.agendamentos.form')
         {!! Form::close() !!}
 
     </div>

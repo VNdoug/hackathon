@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Atendente;
 
+use App\Funcoes\Datas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,5 +29,20 @@ class AgendamentoController extends Controller
 
     	return json_encode($resposta);
     	// return $agendamentos->toJson();
+    }
+
+    public function confrimaAgendamento(Agendamento $agendamento){
+
+        return view('atendente.agendamentos.edit', compact('agendamento'));
+    }
+
+    public function update(Request $request, Agendamento $agendamento){
+        $dados = $request->all();
+        $dados["data_pre_agendamento"] = Datas::FormataDataBanco($request->data_pre_agendamento);
+        $dados["confirmada"] = $request->confirmada ?? false;
+
+        $agendamento->update($dados);
+
+        return redirect()->route('agendamentos.index')->with('success','Consulta confirmada com sucesso!');
     }
 }
