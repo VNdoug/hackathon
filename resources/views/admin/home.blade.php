@@ -56,7 +56,9 @@
 
     </div>
     <!-- /.row -->
-
+    <div class="row col-xs-12">
+        <canvas id="line-chart" width="800" height="450"></canvas>
+    </div>
     <!-- Main row -->
     <div class="row">
         <!-- Left col -->
@@ -125,3 +127,33 @@
     </div>
     <!-- /.row (main row) -->
 @stop
+
+@section('js')
+    <script>
+    var arrayDias = JSON.parse('{!!$arrayDias!!}');
+    var arrayDados = JSON.parse('{!!$arrayDados!!}');
+
+    console.log(arrayDias);
+    var arrayDados;
+
+        new Chart(document.getElementById("line-chart"), {
+          type: 'line',
+          data: {
+            labels: arrayDias,
+            datasets: [{ 
+                data: arrayDados,
+                label: "Pacientes",
+                borderColor: "#3e95cd",
+                fill: false
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Pacientes atendidos por dia'
+            }
+          }
+        });
+    </script>
+@endsection
