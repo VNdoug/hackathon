@@ -5,81 +5,28 @@ namespace App\Http\Controllers\Atendente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Agendamento;
+
 class AgendamentoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('atendente.agendamentos.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function ajaxGet() {
+    	$agendamentos = Agendamento::comRelacionamentos()->get();
+    	$resposta = [];
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    	foreach ($agendamentos as $agendamento) {
+    		$dados['title'] = $agendamento->medico->name . " - " . $agendamento->paciente->name;
+    		$dados['start'] = $agendamento->data_pre_agendamento;
+    		$dados['color'] = $agendamento->cor_calendario;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    		array_push($resposta, $dados);
+    	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    	return json_encode($resposta);
+    	// return $agendamentos->toJson();
     }
 }

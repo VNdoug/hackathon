@@ -12,7 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/admin/admin.js', 'public/js/admin')
-  .sass('resources/assets/sass/app.scss', 'public/css')
+  .sass('resources/assets/sass/admin/admin.scss', 'public/css/admin')
    // .browserSync({
    //     proxy: 'localhost:8000',
    //     open: false,

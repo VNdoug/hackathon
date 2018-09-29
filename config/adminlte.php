@@ -132,7 +132,11 @@ return [
         //     'url'  => 'admin/settings',
         //     'icon' => 'lock',
         // ],
-        
+        [
+            'text'    => 'Agendamentos',
+            'icon'    => 'calendar',
+            'route'  => 'agendamentos.index',
+        ],
         [
             'text'    => 'Atendentes',
             'icon'    => 'share',

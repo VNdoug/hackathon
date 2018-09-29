@@ -1,6 +1,23 @@
-import $ from 'jquery';
+// import $ from 'jquery';
+
+window.jQuery = window.$ = require('jquery') 
+
 import 'fullcalendar' ;
 
 $('#calendar').fullCalendar({
-    // put your options and callbacks here
+    defaultView: 'listWeek',
+    locale: 'pt-br',
+    timeFormat: 'HH:mm',
+
+    eventSources: [
+        {
+          url: '/ajax/atendente/agendamentos',
+          type: 'GET',
+
+          error: function() {
+            alert('Erro ao obter agendamentos!');
+          },
+          
+        }
+      ]
 });

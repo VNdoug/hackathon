@@ -25,3 +25,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         ]
     ])->except('show');
 });
+
+Route::group(['namespace' => 'Atendente', 'prefix' => 'atendente', 'middleware' => 'auth'], function() {
+	Route::resource('agendamentos', 'AgendamentoController');
+	
+});
+
+Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function() {
+
+	Route::group(['namespace' => 'Atendente', 'prefix' => 'atendente', 'middleware' => 'auth'], function() {
+		Route::get('agendamentos', 'AgendamentoController@ajaxGet');
+	});
+	
+});
