@@ -11,12 +11,13 @@
 
 @section('body')
     <div class="login-box">
-        <div class="login-logo">
-          <img src="{{ asset('template/img/logo.png') }}" width="150" alt="">
-        </div>
         <!-- /.login-logo -->
-        <div class="login-box-body">
-            <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
+        <div class="login-box-body login-custom">
+            <div class="login-logo">
+                <img src="{{ asset('template/img/logo_vermelha.png') }}" width="150" alt="">
+            </div>
+            <hr>
+            <p class="login-box-msg">Acesso Restrito</p>
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}
 
