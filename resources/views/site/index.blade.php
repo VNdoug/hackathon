@@ -151,7 +151,7 @@
                         <h4 class="white no-padding">Sobre Nós</h4>
                     </div>
                     <div class="info-sec">
-                        <p class="cor-white-p">Equipe de três desenvolvedores WEB, para a maratona de programação Hackaton.</p>
+                        <p class="cor-white-p">Equipe de três desenvolvedores WEB, para a maratona de programação Hackathon.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 marb20">
@@ -194,7 +194,7 @@
                         Licensing information: https://bootstrapmade.com/license/
                         Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medilab
                       -->
-                        Dsenvolvido por: <a href="#">Leonardo, Nicácio e Douglas</a>
+                        Desenvolvido por: <a href="#">Leonardo, Nicácio e Douglas</a>
                     </div>
                 </div>
             </div>
