@@ -1,25 +1,21 @@
 <div class="box-body">
-    <div class="row">
-        <div class="col-md-4">
-            @include('formulario.text',['nome_campo' => 'nome', 'label_campo' => 'Nome',
-            'required' => 'required', 'classes' => 'form-required'])
+        <div class="form-group">
+            {{ Form::label('descricao', 'Especialização') }}
+            {{ Form::text('descricao', old('descricao'), ['class' => 'form-control form-required', 'autofocus', 'required']) }}
         </div>
-        <div class="col-md-4">
-            @include('formulario.text',['nome_campo' => 'razao_social', 'label_campo' => 'Razão Social'])
-        </div>
-        <div class="col-md-4">
-            @include('formulario.text',['nome_campo' => 'cnpj', 'label_campo' => 'CNPJ', 'required' => 'required',
-            'classes' => 'form-required', 'mascara' => 'mask-cnpj'])
-        </div>
-    </div>
 
-    @isset($fabrica)
-        <label>
-            {{Form::checkbox('ativo', 1, $fabrica->ativo)}}
-            Fabrica ativa
-        </label>
-    @endisset
+        <div class="checkbox">
+            @isset($especializacao)
+            <label>
+                {{Form::checkbox('ativo', 1, $especializacao->ativo)}}
+                Especialização ativa
+            </label>
+            @endisset
+        </div>
 </div>
 <!-- /.box-body -->
 
-@include('formulario.footer', ['retorno' => route('fabricas.index')])
+<div class="box-footer">
+    <a href="{{ route('especializacoes.index') }}" class="btn btn-default btn-flat"><i class="fa fa-arrow-left"></i> Voltar</a>
+    <button type="submit" class="btn btn-success btn-flat pull-right"><i class="fa fa-save"></i> Salvar</button>
+</div>

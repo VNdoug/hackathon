@@ -22,9 +22,14 @@
 @stop
 
 @section('content')
-    {{--<formulario titulo="Cadastro de Fabrica" icone="fa-plus-circle" box_topo="box-success">--}}
-        {{--{{ Form::open(['route' => 'fabricas.store', 'class' => 'modal-crud']) }}--}}
-{{--            @include('cadastro_base.fabricas.form')--}}
-        {{--{{ Form::close() }}--}}
-    {{--</formulario>--}}
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-plus-circle"></i> Adicionar Especialização</h3>
+        </div>
+
+        {{ Form::open(['route' => 'especializacoes.store', 'class' => 'modal-crud']) }}
+            @include('admin.especializacao_medico.form')
+        {{ Form::close() }}
+
+    </div>
 @stop
