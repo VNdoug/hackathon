@@ -59,4 +59,8 @@ class Agendamento extends Model
         return 'red';
     }
 
+    public function getDataFormatadaConsultaAttribute(){
+        return $this->data_pre_agendamento->format('d/m/Y');
+    }
+
 }

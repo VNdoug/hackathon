@@ -16,6 +16,7 @@
                     <h3 class="cnt-ttl">Preencha o formulário e aguarde!</h3>
 
                     {{ Form::open(['route' => ['agendamento.store', '#agendamento'], 'class' => 'contactForm']) }}
+                        @if(!Auth::check())
                         <div class="row">
                             <div class="form-group col-md-8">
                                 {{ Form::label('name', 'Nome Completo') }}
@@ -65,6 +66,35 @@
                                 {{ Form::text('hora_pre_agendamento', null, ['class' => 'form-control br-radius-zero timepicker','required',]) }}
                             </div>
                         </div>
+                    @else
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                {{ Form::label('especializacao_id', 'Tipo de Médico') }}
+                                {{ Form::select('especializacao_id', $especializacoes, null, ['class' => 'form-control br-radius-zero',
+                                'required', 'id' => 'select-tipo-medico', 'placeholder' => '', 'data-url-ajax' => route('ajax.medicos')]) }}
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                {{ Form::label('medico_id', 'Médicos Disponíveis') }}
+                                {{ Form::select('medico_id', [], null, ['class' => 'form-control br-radius-zero','required', 'id' => 'select-medicos', 'disabled']) }}
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="form-group col-md-6">
+                                {{ Form::label('data_pre_agendamento', 'Dia da Consulta') }}
+                                {{ Form::text('data_pre_agendamento', null, ['class' => 'form-control br-radius-zero','required', 'id' => 'datepicker']) }}
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                {{ Form::label('hora_pre_agendamento', 'Hora da Consulta') }}
+                                {{ Form::text('hora_pre_agendamento', null, ['class' => 'form-control br-radius-zero timepicker','required',]) }}
+                            </div>
+                        </div>
+                        @endif
 
                         <div class="form-group">
                             {{ Form::label('sintomas', 'Fale um pouco do que você precisa') }}
