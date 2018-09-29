@@ -17,9 +17,14 @@ class Agendamento extends Model
         'data_retorno'
     ];
 
+
     /* Scopes */
     public function scopeComRelacionamentos($query) {
         return $query->with(['paciente', 'medico']);
+    }
+
+    public function scopeConfirmadas($query) {
+        return $query->where('confirmada', 1);
     }
 
 
@@ -35,6 +40,14 @@ class Agendamento extends Model
 
     /* Getters */
     public function getCorCalendarioAttribute() {
+        if ($this->concluida) {
+            return 'green';
+        }
+        
+        if ($this->confirmada) {
+            return 'blue';
+        }
+        
         return 'red';
     }
 

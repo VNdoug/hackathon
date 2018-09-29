@@ -43,10 +43,14 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function() {
 		Route::get('agendamentos', 'AgendamentoController@ajaxGet');
 	});
 
+	Route::group(['namespace' => 'Medico', 'prefix' => 'medico', 'middleware' => 'auth'], function() {
+		Route::get('consultas', 'AgendamentoController@ajaxGet');
+	});
 });
 
-Route::group(['namespace' => 'Medico', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
+Route::group(['namespace' => 'Medico', 'prefix' => 'medico', 'middleware' => 'auth'], function() {
+	Route::resource('/consultas', 'AgendamentoController');
 
-Route::resource('/atendimentos', 'AtendimentoController');
+	Route::resource('/atendimentos', 'AtendimentoController');
 });
 
