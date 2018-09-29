@@ -1,4 +1,5 @@
-@extends('site.master')
+<!DOCTYPE html>
+<html lang="pt-br">
 
 @section('content')
     @include('site.services')

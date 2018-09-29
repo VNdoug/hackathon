@@ -24,7 +24,15 @@ class Agendamento extends Model
     }
 
     public function scopeConfirmadas($query) {
-        return $query->where('confirmada', 1);
+        return $query->where('confirmada', 1)->where('concluida', 0);
+    }
+
+    public function scopeConcluidas($query) {
+        return $query->where('concluida', 1);
+    }
+
+    public function scopePendentes($query) {
+        return $query->where('confirmada', 0);
     }
 
 
