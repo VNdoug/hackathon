@@ -22,7 +22,7 @@
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                {{ Form::text('data_retorno', isset($atendimento->data_retorno) ? $atendimento->data_retorno->format('d/m/Y'):null, ['class' => 'form-control pull-right', 'id' => 'datepicker']) }}
+                {{ Form::text('data_retorno',  $atendimento->data_retorno->format('d/m/Y'), ['class' => 'form-control pull-right', 'id' => 'datepicker']) }}
             </div>
         </div>
 
