@@ -13,14 +13,14 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{$consultasConfirmadas}}</h3>
 
                     <p>Consultas Confirmadas</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-calendar"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                {{-- <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a> --}}
             </div>
         </div>
         <!-- ./col -->
@@ -28,14 +28,14 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53</h3>
+                    <h3>{{$consultasConcluidas}}</h3>
 
                     <p>Consultas Realizadas</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-checkmark"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                {{-- <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a> --}}
             </div>
         </div>
         <!-- ./col -->
@@ -43,14 +43,14 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{$consultasPendentes}}</h3>
 
                     <p>Consultas Pendentes</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-clock"></i>
                 </div>
-                <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
+                {{-- <a href="#" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a> --}}
             </div>
         </div>
 
@@ -70,7 +70,7 @@
                     <!-- tools box -->
                     <div class="pull-right box-tools">
                         <!-- button with a dropdown -->
-                        <div class="btn-group">
+                       {{--  <div class="btn-group">
                             <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bars"></i></button>
                             <ul class="dropdown-menu pull-right" role="menu">
@@ -79,7 +79,7 @@
                                 <li class="divider"></li>
                                 <li><a href="#">View calendar</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>
                         <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
@@ -95,42 +95,22 @@
                 <!-- /.box-body -->
                 <div class="box-footer text-black">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <!-- Progress bars -->
-                            <div class="clearfix">
-                                <span class="pull-left">Medico A</span>
-                                <small class="pull-right">9</small>
+                        @foreach ($medicos->chunk(2) as $chunk)
+                            <div class="col-sm-6">
+                                @foreach ($chunk as $medico)
+                                    <!-- Progress bars -->
+                                    <div class="clearfix">
+                                        <span class="pull-left">{{$medico->name}}</span>
+                                        <small class="pull-right">9</small>
+                                    </div>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
+                                    </div>
+                                @endforeach
                             </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                            </div>
-
-                            <div class="clearfix">
-                                <span class="pull-left">Medico B</span>
-                                <small class="pull-right">4</small>
-                            </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-6">
-                            <div class="clearfix">
-                                <span class="pull-left">Medico C</span>
-                                <small class="pull-right">6</small>
-                            </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                            </div>
-
-                            <div class="clearfix">
-                                <span class="pull-left">Medico d</span>
-                                <small class="pull-right">1</small>
-                            </div>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-green" style="width: 10%;"></div>
-                            </div>
-                        </div>
+                        @endforeach
+                           
+                       
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
