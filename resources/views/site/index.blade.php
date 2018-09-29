@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
+@extends('site.master')
 @section('content')
     @include('site.services')
     <!--cta-->

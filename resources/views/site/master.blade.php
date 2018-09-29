@@ -88,7 +88,7 @@
                         <h4 class="white no-padding">Sobre Nós</h4>
                     </div>
                     <div class="info-sec">
-                        <p>Equipe de três desenvolvedores WEB, para a maratona de programação Hackaton.</p>
+                        <p class="cor-white-p">Equipe de três desenvolvedores WEB, para a maratona de programação Hackaton.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 marb20">
