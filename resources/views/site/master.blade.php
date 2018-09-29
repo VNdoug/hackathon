@@ -25,6 +25,14 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
     ======================================================= -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('template/img/fav/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('template/img/fav/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template/img/fav/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('template/img/fav/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('template/img/fav/safari-pinned-tab.svg') }}" color="#fc1b00">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
