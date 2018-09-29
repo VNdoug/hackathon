@@ -40,6 +40,14 @@ class Agendamento extends Model
 
     /* Getters */
     public function getCorCalendarioAttribute() {
+        if ($this->concluida) {
+            return 'green';
+        }
+        
+        if ($this->confirmada) {
+            return 'blue';
+        }
+        
         return 'red';
     }
 
