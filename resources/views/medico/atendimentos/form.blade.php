@@ -16,7 +16,6 @@
 
     <div class="row">
         <div class="form-group col-md-6">
-            <label>Date:</label>
             {{ Form::label('data_retorno', 'Data do Retorno') }}
             <div class="input-group date">
                 <div class="input-group-addon">
