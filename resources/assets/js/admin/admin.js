@@ -3,7 +3,21 @@ import 'fullcalendar' ;
 import 'bootstrap-datepicker';
 
 $('#calendar').fullCalendar({
-    // put your options and callbacks here
+    defaultView: 'listWeek',
+    locale: 'pt-br',
+    timeFormat: 'HH:mm',
+
+    eventSources: [
+        {
+          url: '/ajax/atendente/agendamentos',
+          type: 'GET',
+
+          error: function() {
+            alert('Erro ao obter agendamentos!');
+          },
+
+        }
+      ]
 });
 
 //Date picker

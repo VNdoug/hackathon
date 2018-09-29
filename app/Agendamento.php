@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Agendamento extends Model
 {
@@ -19,4 +20,27 @@ class Agendamento extends Model
     public function paciente(){
         return $this->hasOne(User::class, 'id', 'paciente_id');
     }
+
+
+    /* Scopes */
+    public function scopeComRelacionamentos($query) {
+        return $query->with(['paciente', 'medico']);
+    }
+
+
+    /* Relationships */
+    public function paciente() {
+        return $this->belongsTo(User::class, 'paciente_id');
+    }
+
+    public function medico() {
+        return $this->belongsTo(User::class, 'medico_id');
+    }
+
+
+    /* Getters */
+    public function getCorCalendarioAttribute() {
+        return 'red';
+    }
+
 }
