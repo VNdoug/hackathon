@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\EspecializacaoMedico;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PhpParser\Node\Stmt\Return_;
 
 class EspecializacaoMedicoController extends Controller
 {
@@ -15,7 +16,7 @@ class EspecializacaoMedicoController extends Controller
      */
     public function index()
     {
-        $especializacoes = EspecializacaoMedico::orderBy('id', 'desc')->get();
+        $especializacoes = EspecializacaoMedico::latest()->get();
 
         return view('admin.especializacao_medico.index', compact('especializacoes'));
     }
@@ -38,18 +39,8 @@ class EspecializacaoMedicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        EspecializacaoMedico::create($request->all());
+        Return redirect()->route('especializacoes.index')->with('success', 'Especialização Adicionada com Sucesso!');
     }
 
     /**
@@ -58,9 +49,9 @@ class EspecializacaoMedicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(EspecializacaoMedico $especializacaoMedico)
     {
-        //
+        return view('admin.especializacao_medico.edit', compact('especializacaoMedico'));
     }
 
     /**
@@ -70,9 +61,13 @@ class EspecializacaoMedicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, EspecializacaoMedico $especializacaoMedico)
     {
-        //
+        $dados = $request->all();
+        $dados['ativo'] = $request->ativo ?? false;
+        $especializacaoMedico->update($dados);
+        Return redirect()->route('especializacoes.index')->with('success', 'Especialização Atualizada com Sucesso!');
+
     }
 
     /**
@@ -81,8 +76,10 @@ class EspecializacaoMedicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(EspecializacaoMedico $especializacaoMedico)
     {
-        //
+        $especializacaoMedico->delete();
+        Return redirect()->route('especializacoes.index')->with('success', 'Especialização Removida com Sucesso!');
+
     }
 }

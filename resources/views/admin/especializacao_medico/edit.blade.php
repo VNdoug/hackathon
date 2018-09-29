@@ -8,23 +8,28 @@
     <ol class="breadcrumb">
         <li>
             <i class="fa fa-tachometer"></i>
-            <a href="{{route('home')}}">Início</a>
+            <a href="#">Início</a>
         </li>
         <li class="">
             <i class="fa fa-user-md"></i>
-            <a href="{{route('fabricas.index')}}">Fabrica</a>
+            <a href="{{route('especializacoes.index')}}">Especializações</a>
         </li>
         <li class="active">
-            Editar Fabrica
+            Editar Especialização
         </li>
     </ol>
-    <h1>Editar Fabrica <small>Edição da Fabrica</small></h1>
+    <h1>Editar Especialização <small>Edição da Especialização</small></h1>
 @stop
 
 @section('content')
-    <formulario titulo="Edição da Fabrica" icone="fa-pencil-square-o " box_topo="box-warning">
-        {!! Form::model($fabrica, ['route' => ['fabricas.update', $fabrica], 'method' => 'PATCH']) !!}
-            @include('cadastro_base.fabricas.form')
-        {!! Form::close() !!}
-    </formulario>
+    <div class="box box-warning">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-plus-circle"></i> Editar Especialização</h3>
+        </div>
+
+        {{ Form::model($especializacaoMedico,['route' => ['especializacoes.update',$especializacaoMedico], 'class' => 'modal-crud', 'method' => 'PATCH']) }}
+            @include('admin.especializacao_medico.form')
+        {{ Form::close() }}
+
+    </div>
 @stop

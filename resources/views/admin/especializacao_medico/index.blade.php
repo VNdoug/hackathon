@@ -47,7 +47,7 @@
                         <td>{{ $especializacao->id }}</td>
                         <td>{{ $especializacao->descricao }}</td>
                         <td class="text-center">
-                            @if($especializacao->regra_ativo == 1)
+                            @if($especializacao->ativo == 1)
                                 <span class="label bg-green">Sim</span>
                             @else
                                 <span class="label bg-red">Não</span>
@@ -59,7 +59,7 @@
                                 <i class="fa fa-pencil"></i>
                             </a>
 
-                            <button type="button" class="delete btn btn-sm btn-flat btn-danger delete" data-toggle="tooltip" title="Excluir">
+                            <button type="submit" class="delete btn btn-sm btn-flat btn-danger delete" data-toggle="tooltip" title="Excluir">
                                 <i class="fa fa-trash"></i>
                             </button>
                             {!! Form::close() !!}

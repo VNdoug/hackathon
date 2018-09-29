@@ -5,9 +5,9 @@
         </div>
 
         <div class="checkbox">
-            @isset($especializacao)
+            @isset($especializacaoMedico)
             <label>
-                {{Form::checkbox('ativo', 1, $especializacao->ativo)}}
+                {{Form::checkbox('ativo', 1, $especializacaoMedico->ativo)}}
                 Especialização ativa
             </label>
             @endisset
