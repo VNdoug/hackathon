@@ -53,7 +53,7 @@ $('#calendar-medico').fullCalendar({
 
     eventSources: [
       {
-        url: '/ajax/medico/agendamentos',
+        url: '/ajax/medico/consultas',
         type: 'GET',
 
         error: function() {
