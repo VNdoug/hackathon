@@ -21,9 +21,15 @@
 @stop
 
 @section('content')
-    <formulario titulo="Edição do Atendente" icone="fa-pencil-square-o " box_topo="box-warning">
+
+    <div class="box box-warning">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-pencil-square-o"></i> Edição do Atendente</h3>
+        </div>
+
         {!! Form::model($atendente, ['route' => ['atendentes.update', $atendente], 'method' => 'PATCH']) !!}
-            @include('admin.atendentes.form')
+        @include('admin.atendentes.form')
         {!! Form::close() !!}
-    </formulario>
+
+    </div>
 @stop

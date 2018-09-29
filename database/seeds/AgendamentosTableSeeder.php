@@ -17,7 +17,8 @@ class AgendamentosTableSeeder extends Seeder
             $agendamentos->insert([
                 'paciente_id'       => 4,
                 'medico_id'       => 2,
-                'data_pre_agendamento'     => '2018-09-30 09:00',
+                'data_pre_agendamento'     => '2018-09-30',
+                'hora_pre_agendamento'     => '09:00',
                 'sintomas'    => 'teste de agendamento',
             ]);
 
