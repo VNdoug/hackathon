@@ -16,13 +16,12 @@
 
     <div class="row">
         <div class="form-group col-md-6">
-            <label>Date:</label>
             {{ Form::label('data_retorno', 'Data do Retorno') }}
             <div class="input-group date">
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                {{ Form::text('data_retorno',  $atendimento->data_retorno->format('d/m/Y'), ['class' => 'form-control pull-right', 'id' => 'datepicker']) }}
+                {{ Form::text('data_retorno', isset($atendimento->data_retorno) ? $atendimento->data_retorno->format('d/m/Y'):null, ['class' => 'form-control pull-right', 'id' => 'datepicker']) }}
             </div>
         </div>
 

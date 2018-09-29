@@ -28,6 +28,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 
 Route::group(['namespace' => 'Atendente', 'prefix' => 'atendente', 'middleware' => 'auth'], function() {
 	Route::resource('agendamentos', 'AgendamentoController');
+    Route::get('/confirmar/agendamento/{agendamento}', 'AgendamentoController@confrimaAgendamento')->name('confirmar.agendamento');
+    Route::put('/confirmar/agendamento/{agendamento}', 'AgendamentoController@update')->name('atualiza.agendamento.confirmado');
+
 
 });
 
