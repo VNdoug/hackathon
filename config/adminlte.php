@@ -112,10 +112,12 @@ return [
             'text'    => 'Agendamentos',
             'icon'    => 'calendar',
             'route'  => 'agendamentos.index',
+            'role'  => 'atendente',
         ],
         [
             'text'    => 'Atendentes',
             'icon'    => 'users',
+            'role'    => 'atendente',
             'submenu' => [
                 [
                     'text' => 'Listar',
@@ -133,6 +135,7 @@ return [
         [
             'text'    => 'Medicos',
             'icon'    => 'user-md',
+            'role'    => 'medico',
             'submenu' => [
                 [
                     'text' => 'Consultas',
@@ -171,6 +174,7 @@ return [
             'text'    => 'Atendimentos',
             'icon'    => 'medkit',
             'route'  => 'atendimentos.index',
+            'role'    => 'medico',
             'active' => ['admin/atendimento', 'admin/atendimentos/*'],
 
         ],

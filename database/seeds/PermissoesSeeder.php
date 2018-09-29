@@ -19,9 +19,14 @@ class PermissoesSeeder extends Seeder
             $role[3] = Role::create(['name' => 'atendente']);
             $role[4] = Role::create(['name' => 'paciente']);
 
-            for ($i = 1; $i <= 4 ; $i++) { 
-                User::find($i)->syncRoles($role[$i]);
+            User::find(1)->syncRoles($role[1]);
+
+            for ($i = 2; $i < 5 ; $i++) { 
+                User::find($i)->syncRoles($role[2]);
             }
-        
+
+            User::find(6)->syncRoles($role[3]);
+            
+            /* role paciente nao está setado*/
     }
 }
