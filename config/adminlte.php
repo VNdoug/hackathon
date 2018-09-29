@@ -120,10 +120,12 @@ return [
                 [
                     'text' => 'Listar',
                     'route'  => 'atendentes.index',
+                    'active' => ['admin/atendentes'],
                 ],
                 [
                     'text' => 'Cadastrar',
                     'route'  => 'atendentes.create',
+                    'active' => ['admin/atendentes/*'],
                 ],
 
             ],
@@ -135,10 +137,12 @@ return [
                 [
                     'text' => 'Consultas',
                     'route'  => 'consultas.index',
+                    'active' => ['admin/medicos'],
                 ],
                 [
                     'text' => 'Listar',
                     'route'  => 'medicos.index',
+                    'active' => ['admin/medicos/*'],
                 ],
                 [
                     'text' => 'Cadastrar',
@@ -167,6 +171,8 @@ return [
             'text'    => 'Atendimentos',
             'icon'    => 'medkit',
             'route'  => 'atendimentos.index',
+            'active' => ['admin/atendimento', 'admin/atendimentos/*'],
+
         ],
 
     ],
